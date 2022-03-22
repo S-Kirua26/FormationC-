@@ -14,7 +14,7 @@ namespace Serie_II
            {
                 if (valeur == tableau[i])
                 {
-                    Console.WriteLine($"Valeur trouvé à la position {i}");
+                    Console.WriteLine($"Valeur trouvé à la position {i}"); 
                     return i;
                 }
            }
