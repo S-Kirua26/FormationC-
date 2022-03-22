@@ -34,7 +34,7 @@ namespace Serie_II
                 score += AskQuestion(qcms[i]);
                 total += qcms[i].Weight;
             }
-            Console.WriteLine($"Résultats du questionnaire  : {score} / {total}");
+            Console.WriteLine($"Résultats du questionnaire  : {score} / {total}"); 
         }
 
         public static int AskQuestion(Qcm qcm)

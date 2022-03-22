@@ -31,7 +31,7 @@ namespace Serie_II
             
             
             string question2 = "Pour le manga One Piece, combien y'a t'il de tome actuellement?";
-            string[] reponse2 = { "80", "56", "100", "110" };
+            string[] reponse2 = { "80", "56", "100", "110" }; 
             int solution2 = 3;
             int ponderation2 = 1;
             Qcm q2 = new Qcm(question2, reponse2, solution2, ponderation2);
