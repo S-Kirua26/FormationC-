@@ -15,6 +15,7 @@ namespace Serie_I
                 if (a % i == 0 && b % i == 0) // si le reste de la division de a par i == 0 ET que le reste de la division de b par i == 0
                     return i;
             }
+
             return 0;
         }
 
