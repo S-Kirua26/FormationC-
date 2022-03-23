@@ -31,37 +31,84 @@ namespace Serie_III
     {
         public static void DisplayPerformances(List<int> sizes, int count)
         {
-            //TODO
+            Console.WriteLine("n;MeanInsertion,StdInsertion;MeanQuick,StdQuick");
+            List<SortData> datas = PerformancesTest(sizes, count);
+            for (int i =0; i < datas.Count; i++)
+            {
+                Console.WriteLine($"{sizes[i]}, {datas[i].InsertionMean}, {datas[i].QuickMean}");
+            }
         }
 
         public static List<SortData> PerformancesTest(List<int> sizes, int count)
         {
-            //TODO
-            return new List<SortData>();
+            List<SortData> listePerf = new List<SortData>();
+            
+            for (int i =0; i < sizes.Count; i++)
+            {
+                listePerf.Add(PerformanceTest(sizes[i], count));
+            }
+            return listePerf;
         }
 
         public static SortData PerformanceTest(int size, int count)
         {
-            //TODO
-            return new SortData();
+            long moyenne1 = 0;
+            long moyenne2 = 0;
+
+            for (int i =0; i < count; i++)
+            {
+                List<int[]> listePerf = ArraysGenerator(size);
+
+                moyenne1 += UseInsertionSort(listePerf[0]);
+                moyenne2 += UseQuickSort(listePerf[1]);
+            }
+
+            moyenne1 = moyenne1 / count;
+            moyenne2 = moyenne2 / count;
+
+            SortData structure = new SortData();
+            structure.InsertionMean = moyenne1;
+            structure.QuickMean = moyenne2;
+            return structure;
         }
 
         private static List<int[]> ArraysGenerator(int size)
         {
-            //TODO
-            return new List<int[]>();
+            List<int[]> liste = new List<int[]>();
+            int[] tableau1 = new int[size];
+            int[] tableau2 = new int[size];
+            Random random = new Random();
+
+            for (int i=0; i < size; i++)
+            {
+                int nbRandom = random.Next(-1000, 1001);
+                tableau1[i] = nbRandom;
+                tableau2[i] = nbRandom;
+            }
+            liste.Add(tableau1);
+            liste.Add(tableau2);
+            return liste;
         }
 
         public static long UseInsertionSort(int[] array)
         {
-            //TODO
-            return -1;
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+                InsertionSort(array);
+
+            stopwatch.Stop();
+            Console.WriteLine(stopwatch.ElapsedMilliseconds);
+            return stopwatch.ElapsedMilliseconds;
         }
 
         public static long UseQuickSort(int[] array)
         {
-            //TODO
-            return -1;
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+                QuickSort(array, 0, array.Length - 1);
+            stopwatch.Stop();
+            Console.WriteLine(stopwatch.ElapsedMilliseconds);
+            return stopwatch.ElapsedMilliseconds;
         }
 
         private static void InsertionSort(int[] array)
