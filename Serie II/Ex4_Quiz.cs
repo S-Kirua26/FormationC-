@@ -53,7 +53,7 @@ namespace Serie_II
                 int retour;
                 int.TryParse(input, out retour);
                 
-                while (retour < 0 || retour > qcm.Answers.Length || !int.TryParse(input, out retour)) // si la réponse donnée ne correspond pas à celle attendue
+                while (retour < 0 || retour > qcm.Answers.Length || !int.TryParse(input, out retour)) // si la réponse donnée ne correspond pas à celle attendue 
                 {
                     Console.WriteLine("Reponse Invalide!");
                     input = Console.ReadLine(); // on lui redemande une réponse
