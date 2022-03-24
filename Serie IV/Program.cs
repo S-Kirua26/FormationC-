@@ -23,12 +23,17 @@ namespace Serie_IV
             BusinessSchedule reu = new BusinessSchedule();
             DateTime date1 = new DateTime(2022, 5, 1, 16, 0, 0);
             DateTime date2 = new DateTime(2022, 9, 12, 13, 25, 0);
+            DateTime date3 = new DateTime(2022, 9, 12, 13, 50, 0);
             TimeSpan duration = new TimeSpan(0, 3, 0, 0);
             reu.AddBusinessMeeting(DateTime.Now, duration);
             reu.AddBusinessMeeting(date1, duration);
             reu.AddBusinessMeeting(date2, duration);
-
             reu.DisplayMeetings();
+
+            reu.DeleteBusinessMeeting(date1, duration);
+            Console.WriteLine("");
+            reu.DisplayMeetings();
+            reu.AddBusinessMeeting(date3, duration);
             // Keep the console window open
             Console.WriteLine("----------------------");
             Console.WriteLine("Press any key to exit.");
