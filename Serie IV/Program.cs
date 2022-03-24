@@ -20,7 +20,15 @@ namespace Serie_IV
             //phone.DeletePhoneNumber("0322339999");
             phone.DeletePhoneNumber("0606060606");
             ////////////////////////////////////////////////////////////////////////////////
-            
+            BusinessSchedule reu = new BusinessSchedule();
+            DateTime date1 = new DateTime(2022, 5, 1, 16, 0, 0);
+            DateTime date2 = new DateTime(2022, 9, 12, 13, 25, 0);
+            TimeSpan duration = new TimeSpan(0, 3, 0, 0);
+            reu.AddBusinessMeeting(DateTime.Now, duration);
+            reu.AddBusinessMeeting(date1, duration);
+            reu.AddBusinessMeeting(date2, duration);
+
+            reu.DisplayMeetings();
             // Keep the console window open
             Console.WriteLine("----------------------");
             Console.WriteLine("Press any key to exit.");

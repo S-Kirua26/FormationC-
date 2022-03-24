@@ -8,8 +8,19 @@ namespace Serie_IV
 {
     public class BusinessSchedule
     {
+        /// <summary>
+        /// Dictionnaire d'emploie du temps
+        /// </summary>
         private SortedDictionary<DateTime, DateTime> _reunion;
+
+        /// <summary>
+        /// Date de début du fonctionnement de l'emploi du temps
+        /// </summary>
         private DateTime _dateDebut;
+
+        /// <summary>
+        /// Date de fin du fonctionnement de l'emploi du temps
+        /// </summary>
         private DateTime _dateFin;
 
         public BusinessSchedule()
@@ -55,6 +66,7 @@ namespace Serie_IV
                 else if (beginMeeting <= DateMax)
                 {
                     DateMax = daylyMeeting;
+                    break;
                 }
             }
             return new KeyValuePair<DateTime, DateTime>(DateMin, DateMax);
@@ -110,7 +122,8 @@ namespace Serie_IV
 
             foreach (var item in _reunion)
             {
-                Console.WriteLine($"Reunion{increment} : {item.Key} - {item.Value}");
+                Console.WriteLine($"Reunion{increment.ToString().PadRight(7)} : {item.Key} - {item.Value}");
+                increment += 1;
             }
 
             if (IsEmpty())
