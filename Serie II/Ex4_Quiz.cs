@@ -87,4 +87,33 @@ namespace Serie_II
             return false;
         }
     }
+    // trim() permet de supprimer les espaces avant et apres une chaine de caracteres
+    // trimStart permet de supprimer les espaces avant une chaine de caracteres
+    // trimEnd permet de supprimer les espaces apres une chaine de caracteres
+    // split permet de spliter mot par mot une chaine de caracteres
+
+    // DateTime dt = new DateTime(1999, 12, 1, 26, 30);
+    // TimeSpan permet de calculer la durée entre deux dates
+
+    // string path = Directory.GetCurrentDirectory();
+    // StreamWtiter file = new StreamWriter(path + @"\WriteLine.txt"); // crée un nouveau fichier dans le répertoire
+    // file.WriteLine(variable) permet d'écrire dans le fichier
+
+    // string text = File.ReadAllText(path + @"\WriteLine.txt"); 
+    // string[] text = File.ReadAllLines(path + @"\WriteLine.txt");
+    // using( var file = new StreamReader(path + @"\WriteLines.txt, Encoding.GetEncoding()"));
+
+    //Stopwatch sw = new Stopwatch()
+    //  sw.Start();
+    //  sw.Stop();
+
+    // List<string> names = new List<string> {"Juan", "Ana", "Felipe" };
+    //    names.Add("Manu"); ajoute
+    //    names.Remove("Felipe"); supprime
+    //    names.RemoveAll(x => x == "Juan");
+    //    names.Any(x => x = x.Contains("Juan")); recherche si dans la liste "Juan" existe
+
+    // Dictionary<string, string> dico = new Dictionary<string, string>();
+    //    dico.Add("fr", "français");
+    //    foreach(KeyValuePair<string, string> d in dico) {}
 }
