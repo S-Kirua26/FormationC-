@@ -56,7 +56,6 @@ namespace Serie_I
                     break;
             }
             return string.Empty;
-            Console.ReadLine();
         }
     }
 }
