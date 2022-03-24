@@ -35,7 +35,7 @@ namespace Serie_III
             List<SortData> datas = PerformancesTest(sizes, count);
             for (int i =0; i < datas.Count; i++)
             {
-                Console.WriteLine($"{sizes[i]}, {datas[i].InsertionMean}, {datas[i].QuickMean}");
+                Console.WriteLine($"{sizes[i]}, {datas[i].InsertionMean}, {datas[i].QuickMean}, {datas[i].InsertionStd}, {datas[i].QuickStd}");
             }
         }
 
@@ -52,23 +52,30 @@ namespace Serie_III
 
         public static SortData PerformanceTest(int size, int count)
         {
-            long moyenne1 = 0;
-            long moyenne2 = 0;
+            SortData structure = new SortData();
+            long sumInsertion = 0;
+            long sumQuick = 0;
+            double stdInsertion = 0;
+            double stdQuick = 0;
 
             for (int i =0; i < count; i++)
             {
                 List<int[]> listePerf = ArraysGenerator(size);
 
-                moyenne1 += UseInsertionSort(listePerf[0]);
-                moyenne2 += UseQuickSort(listePerf[1]);
+                sumInsertion += UseInsertionSort(listePerf[0]);
+                sumQuick += UseQuickSort(listePerf[1]);
             }
 
-            moyenne1 = moyenne1 / count;
-            moyenne2 = moyenne2 / count;
+            sumInsertion = sumInsertion / count;
+            sumQuick = sumQuick / count;
+            stdInsertion = (sumInsertion * sumInsertion / count) - (structure.InsertionMean * structure.InsertionMean);
+            stdQuick = (sumQuick * sumQuick / count) - (structure.QuickMean * structure.QuickMean);
 
-            SortData structure = new SortData();
-            structure.InsertionMean = moyenne1;
-            structure.QuickMean = moyenne2;
+            structure.InsertionMean = sumInsertion;
+            structure.QuickMean = sumQuick;
+            structure.InsertionStd = (long)(Math.Sqrt(stdInsertion));
+            structure.QuickStd = (long)(Math.Sqrt(stdQuick));
+
             return structure;
         }
 
@@ -97,7 +104,7 @@ namespace Serie_III
                 InsertionSort(array);
 
             stopwatch.Stop();
-            Console.WriteLine(stopwatch.ElapsedMilliseconds);
+            //Console.WriteLine(stopwatch.ElapsedMilliseconds);
             return stopwatch.ElapsedMilliseconds;
         }
 
@@ -107,7 +114,7 @@ namespace Serie_III
             stopwatch.Start();
                 QuickSort(array, 0, array.Length - 1);
             stopwatch.Stop();
-            Console.WriteLine(stopwatch.ElapsedMilliseconds);
+            //Console.WriteLine(stopwatch.ElapsedMilliseconds);
             return stopwatch.ElapsedMilliseconds;
         }
 
