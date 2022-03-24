@@ -90,7 +90,7 @@ namespace Serie_IV
 
         public bool DeleteBusinessMeeting(DateTime date, TimeSpan duration)
         {
-            if (_reunion.ContainsKey(date))
+            if (!IsEmpty() && _reunion.ContainsKey(date))
             {
                 _reunion.Remove(date);
                 return true;
